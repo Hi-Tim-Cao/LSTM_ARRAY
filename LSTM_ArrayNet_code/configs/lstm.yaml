@@ -1,0 +1,22 @@
+# LSTM模型配置（继承base.yaml）
+model:
+  type: "lstm_attention"
+  input_dim: 6                     # 输入特征维度（与feature_dim一致）
+  hidden_dim: 128                  # LSTM隐藏层维度
+  num_layers: 2                    # LSTM层数
+  dropout: 0.3                     # Dropout概率
+  bidirectional: True              # 是否使用双向LSTM
+  attention_dim: 64                # 注意力机制维度
+
+loss:
+  weight_position: 1.0             # 位置预测损失权重
+  weight_spacing: 0.5              # 阵元间距约束损失权重
+
+optimizer:
+  type: "AdamW"
+  lr: 0.001
+  weight_decay: 1e-5
+
+scheduler:
+  type: "CosineAnnealingLR"
+  T_max: 50                        # 余弦退火周期

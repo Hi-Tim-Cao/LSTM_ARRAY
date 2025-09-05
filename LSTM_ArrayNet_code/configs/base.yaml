@@ -1,0 +1,18 @@
+# 基础配置（所有任务共享）
+data:
+  raw_train_dir: "data/raw/train"  # 原始训练数据路径
+  raw_test_dir: "data/raw/test"    # 原始测试数据路径
+  processed_dir: "data/processed"  # 预处理数据保存路径
+  seq_length: 1024                 # 回波序列长度（采样点数）
+  num_elements: 8                  # 水听器阵元数量
+  feature_dim: 6                   # 每个采样点的特征维度
+
+train:
+  batch_size: 32
+  epochs: 100
+  val_split: 0.2                   # 训练集划分验证集的比例
+  device: "cuda"                   # 训练设备（cuda/cpu）
+  save_interval: 10                # 模型保存间隔（epoch）
+
+paths:
+  experiments: "experiments"       # 实验记录根目录
